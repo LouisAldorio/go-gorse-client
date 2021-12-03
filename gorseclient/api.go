@@ -49,6 +49,7 @@ func (a *API) newRequest(method string, endpoint string, data []byte) *API {
 	if data != nil {
 		body = bytes.NewBuffer(data)
 	}
+
 	request, err := http.NewRequest(method, a.baseUrl+endpoint, body)
 	if err != nil {
 		a.debugError(err)

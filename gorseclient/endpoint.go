@@ -41,15 +41,15 @@ func endpointInsertUser(data []byte) (string, string, []byte) {
 	return http.MethodPost, "/api/user", data
 }
 
-func endpointGetUserByItemID(userID string) (string, string, []byte) {
+func endpointGetUserByUserID(userID string) (string, string, []byte) {
 	return http.MethodGet, fmt.Sprintf("/api/user/%s", userID), nil
 }
 
-func endpointDeleteUserByItemID(userID string) (string, string, []byte) {
+func endpointDeleteUserByUserID(userID string) (string, string, []byte) {
 	return http.MethodDelete, fmt.Sprintf("/api/user/%s", userID), nil
 }
 
-func endpointUpdateUserByItemID(userID string, data []byte) (string, string, []byte) {
+func endpointUpdateUserByUserID(userID string, data []byte) (string, string, []byte) {
 	return http.MethodPatch, fmt.Sprintf("/api/user/%s", userID), data
 }
 
@@ -136,6 +136,9 @@ func endpointGetUserNeighbors(userID string, n, offset int) (string, string, []b
 	return http.MethodGet, fmt.Sprintf("/api/user/%s/neighbors?n=%d&offset=%d", userID, n, offset), nil
 }
 
+func endpointGetCollaborativeFilteringForUser(userID string, n, offset int) (string, string, []byte) {
+	return http.MethodGet, fmt.Sprintf("/api/intermediate/recommend/%s?n=%d&offset=%d", userID, n, offset), nil
+}
 
 // ============================
 // MEASUREMENT
