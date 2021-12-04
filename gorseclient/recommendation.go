@@ -86,7 +86,7 @@ func (a *API) GetNeighborsOfUser(userID string, n, offset int) ([]string, error)
 	return responseModel, nil
 }
 
-func (a *API) GetCollaborativeFilteringRecommendation(userID string, n, offset int) ([]string, error) {
+func (a *API) GetCollaborativeFilteringRecommendation(userID string, n, offset int) ([]*GetLatestItemResponse, error) {
 
 	if err := a.newRequest(endpointGetCollaborativeFilteringForUser(userID, n, offset)).Error; err != nil {
 		return nil, err
@@ -95,7 +95,7 @@ func (a *API) GetCollaborativeFilteringRecommendation(userID string, n, offset i
 	if err != nil {
 		return nil, err
 	}
-	var responseModel []string
+	var responseModel []*GetLatestItemResponse
 	err = a.jsonUnmarshal(body, &responseModel)
 	if err != nil {
 		return nil, err
