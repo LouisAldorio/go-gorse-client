@@ -1,5 +1,7 @@
 package gorseclient
 
+import "time"
+
 // ITEM
 // ==============================================================
 
@@ -7,10 +9,10 @@ type InsertItemResponse struct {
 	RowAffected int `json:"RowAffected"`
 }
 type GetItemResponse struct {
-	Description string   `json:"Comment"`
-	ItemID      string   `json:"ItemId"`
-	Labels      []string `json:"Labels"`
-	Timestamp   string   `json:"Timestamp"`
+	Description string    `json:"Comment"`
+	ItemID      string    `json:"ItemId"`
+	Labels      []string  `json:"Labels"`
+	Timestamp   time.Time `json:"Timestamp"`
 }
 type DeleteItemResponse struct {
 	RowAffected int `json:"RowAffected"`
@@ -59,11 +61,11 @@ type InsertUsersResponse struct {
 // FEEDBACK
 // ==============================================================
 type FeedbackResponse struct {
-	Description  string `json:"Comment"`
-	FeedbackType string `json:"FeedbackType"`
-	ItemID       string `json:"ItemId"`
-	UserID       string `json:"UserId"`
-	Timestamp    string `json:"Timestamp"`
+	Description  string    `json:"Comment"`
+	FeedbackType string    `json:"FeedbackType"`
+	ItemID       string    `json:"ItemId"`
+	UserID       string    `json:"UserId"`
+	Timestamp    time.Time `json:"Timestamp"`
 }
 
 type GetFeedbacksWithFeedbackTypeResponse struct {
@@ -94,8 +96,8 @@ type GetLatestItemResponse struct {
 // MEASUREMENT
 // ==============================================================
 type GetMeasurementResponse struct {
-	Description string `json:"Comment"`
-	Name        string `json:"Name"`
-	Timestamp   string `json:"Timestamp"`
-	Value       int    `json:"Value"`
+	Description string    `json:"Comment"`
+	Name        string    `json:"Name"`
+	Timestamp   time.Time `json:"Timestamp"`
+	Value       int       `json:"Value"`
 }
