@@ -56,7 +56,7 @@ func (a *API) newRequest(method string, endpoint string, data []byte) *API {
 		a.Error = err
 		return a
 	}
-	request.Header.Set("Accept", "application/json")
+	request.Header.Set("Accept", "*/*")
 	request.Header.Set("Content-Type", "application/json")
 	request.Header.Set("X-API-Key", a.token)
 	a.request = request
