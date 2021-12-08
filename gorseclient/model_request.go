@@ -7,18 +7,21 @@ import "time"
 
 type InsertItemParam struct {
 	// description about the item
-	Description string   `json:"Comment"`
+	Description string `json:"Comment"`
 	// ID that identifies your item in your database
-	ItemID      string   `json:"ItemId"`
+	ItemID string `json:"ItemId"`
 	// Labels helps describe your item better, and make recommendation more accurate
-	Labels      []string `json:"Labels"`
+	Labels []string `json:"Labels"`
 	// The current time when this item is created and feed to the model
-	Timestamp   time.Time   `json:"Timestamp"`
+	Timestamp time.Time `json:"Timestamp"`
+
+	Categories []string `json:"Categories"`
 }
 type UpdateItemParam struct {
-	Description string   `json:"Comment"`
-	Labels      []string `json:"Labels"`
-	Timestamp   time.Time   `json:"Timestamp"`
+	Description string    `json:"Comment"`
+	Labels      []string  `json:"Labels"`
+	Timestamp   time.Time `json:"Timestamp"`
+	Categories  []string  `json:"Categories"`
 }
 
 // USER
@@ -40,9 +43,9 @@ type UpdateUserParam struct {
 // ==============================================================
 
 type FeedbackParam struct {
-	Description  string `json:"Comment"`
-	FeedbackType string `json:"FeedbackType"`
-	ItemID       string `json:"ItemId"`
-	UserID       string `json:"UserId"`
+	Description  string    `json:"Comment"`
+	FeedbackType string    `json:"FeedbackType"`
+	ItemID       string    `json:"ItemId"`
+	UserID       string    `json:"UserId"`
 	Timestamp    time.Time `json:"Timestamp"`
 }
